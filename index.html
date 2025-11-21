@@ -1,0 +1,279 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title></title>
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="2685.1">
+  <style type="text/css">
+    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica}
+    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica; min-height: 14.0px}
+  </style>
+</head>
+<body>
+<p class="p1">&lt;!DOCTYPE html&gt;</p>
+<p class="p1">&lt;html lang="pt-BR"&gt;</p>
+<p class="p1">&lt;head&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;meta charset="UTF-8" /&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;title&gt;Gerador de Sobreaviso DRV/DEIC&lt;/title&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;style&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>body {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-family: Arial, sans-serif;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>background: #f4f6f8;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>margin: 0;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>padding: 20px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>color: #111827;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>h1 {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>text-align: center;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>margin-bottom: 20px;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.container {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>max-width: 720px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>margin: 0 auto;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>background: #ffffff;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>padding: 20px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>border-radius: 8px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>box-shadow: 0 2px 6px rgba(0,0,0,0.08);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>label {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-weight: 600;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>display: block;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>margin-bottom: 8px;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>select {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>width: 100%;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>padding: 8px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>margin-bottom: 16px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>border-radius: 4px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>border: 1px solid #d1d5db;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-size: 14px;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>textarea {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>width: 100%;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>height: 260px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>padding: 10px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>border-radius: 4px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>border: 1px solid #d1d5db;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>resize: vertical;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-family: "Courier New", monospace;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-size: 13px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>margin-bottom: 16px;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.buttons {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>display: flex;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>flex-wrap: wrap;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>gap: 10px;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>button {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>padding: 10px 14px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>border-radius: 4px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>border: none;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>cursor: pointer;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-size: 14px;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.btn-copy { background: #2563eb; color: #fff; }</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.btn-wa <span class="Apple-converted-space">  </span>{ background: #16a34a; color: #fff; }</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.btn-clear{ background: #6b7280; color: #fff; }</p>
+<p class="p1"><span class="Apple-converted-space">    </span>@media (max-width: 600px) {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>.container { padding: 16px; }</p>
+<p class="p1"><span class="Apple-converted-space">      </span>textarea { height: 220px; }</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/style&gt;</p>
+<p class="p1">&lt;/head&gt;</p>
+<p class="p1">&lt;body&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;div class="container"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;h1&gt;Gerador de Sobreaviso DRV/DEIC&lt;/h1&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;label for="data-select"&gt;Selecione a data de novembro/2025:&lt;/label&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;select id="data-select"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;option value=""&gt;-- Escolha uma data --&lt;/option&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;option&gt;01/11/2025&lt;/option&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;option&gt;02/11/2025&lt;/option&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;option&gt;03/11/2025&lt;/option&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;option&gt;04/11/2025&lt;/option&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;option&gt;05/11/2025&lt;/option&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;option&gt;06/11/2025&lt;/option&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;option&gt;07/11/2025&lt;/option&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;option&gt;08/11/2025&lt;/option&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;option&gt;09/11/2025&lt;/option&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;option&gt;10/11/2025&lt;/option&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;option&gt;11/11/2025&lt;/option&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;option&gt;12/11/2025&lt;/option&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;option&gt;13/11/2025&lt;/option&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;option&gt;14/11/2025&lt;/option&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;option&gt;15/11/2025&lt;/option&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;option&gt;16/11/2025&lt;/option&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;option&gt;17/11/2025&lt;/option&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;option&gt;18/11/2025&lt;/option&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;option&gt;19/11/2025&lt;/option&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;option&gt;20/11/2025&lt;/option&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;option&gt;21/11/2025&lt;/option&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;option&gt;22/11/2025&lt;/option&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;option&gt;23/11/2025&lt;/option&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;option&gt;24/11/2025&lt;/option&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;option&gt;25/11/2025&lt;/option&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;option&gt;26/11/2025&lt;/option&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;option&gt;27/11/2025&lt;/option&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;option&gt;28/11/2025&lt;/option&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;option&gt;29/11/2025&lt;/option&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;option&gt;30/11/2025&lt;/option&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/select&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;textarea id="output" placeholder="O texto do sobreaviso aparecerá aqui..." readonly&gt;&lt;/textarea&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="buttons"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;button class="btn-copy" id="btn-copy"&gt;Copiar texto&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;button class="btn-wa" id="btn-wa"&gt;Enviar no WhatsApp&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;button class="btn-clear" id="btn-clear"&gt;Limpar&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;script&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>const phoneMapping = {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>"Cau": "Insp. Acauã (51) 986859065",</p>
+<p class="p1"><span class="Apple-converted-space">      </span>"PIAZZA": "Esc. Fernanda Piazza (51) 993605744",</p>
+<p class="p1"><span class="Apple-converted-space">      </span>"Piazza": "Esc. Fernanda Piazza (51) 993605744",</p>
+<p class="p1"><span class="Apple-converted-space">      </span>"CRISTIANO": "Insp. Cristiano Soletti (51) 995659880",</p>
+<p class="p1"><span class="Apple-converted-space">      </span>"Cristiano": "Insp. Cristiano Soletti (51) 995659880",</p>
+<p class="p1"><span class="Apple-converted-space">      </span>"TERESINHA": "Insp. Teresinha Carivali (51) 999829606",</p>
+<p class="p1"><span class="Apple-converted-space">      </span>"Teresinha": "Insp. Teresinha Carivali (51) 999829606",</p>
+<p class="p1"><span class="Apple-converted-space">      </span>"Thiago": "Insp. Thiago Meireles (79) 988080613",</p>
+<p class="p1"><span class="Apple-converted-space">      </span>"CESAR": "Esc. César da Costa (51) 998911160",</p>
+<p class="p1"><span class="Apple-converted-space">      </span>"CÉSAR": "Esc. César da Costa (51) 998911160",</p>
+<p class="p1"><span class="Apple-converted-space">      </span>"Vanessa": "Insp. Vanessa Trindade (55) 984278960",</p>
+<p class="p1"><span class="Apple-converted-space">      </span>"VANESSA": "Insp. Vanessa Trindade (55) 984278960",</p>
+<p class="p1"><span class="Apple-converted-space">      </span>"BONA": "Insp. Juliano Bonacina (51) 989276060",</p>
+<p class="p1"><span class="Apple-converted-space">      </span>"Bona": "Insp. Juliano Bonacina (51) 989276060",</p>
+<p class="p1"><span class="Apple-converted-space">      </span>"GUI MELLO": "Insp. Guilherme Mello (51) 981354933",</p>
+<p class="p1"><span class="Apple-converted-space">      </span>"Gui Mello": "Insp. Guilherme Mello (51) 981354933",</p>
+<p class="p1"><span class="Apple-converted-space">      </span>"Tais": "Insp. Tais Boesing (51) 980549435",</p>
+<p class="p1"><span class="Apple-converted-space">      </span>"TAIS": "Insp. Tais Boesing (51) 980549435",</p>
+<p class="p1"><span class="Apple-converted-space">      </span>"JEFF": "Esc. Jefferson Antoniol (24) 981002933",</p>
+<p class="p1"><span class="Apple-converted-space">      </span>"Jeff": "Esc. Jefferson Antoniol (24) 981002933",</p>
+<p class="p1"><span class="Apple-converted-space">      </span>"Luciana": "Esc. Luciana Bortoli (51) 993935552",</p>
+<p class="p1"><span class="Apple-converted-space">      </span>"LUCIANA": "Esc. Luciana Bortoli (51) 993935552",</p>
+<p class="p1"><span class="Apple-converted-space">      </span>"Edna": "Insp. Edna Moraes (53) 981339654",</p>
+<p class="p1"><span class="Apple-converted-space">      </span>"EDNA": "Insp. Edna Moraes (53) 981339654",</p>
+<p class="p1"><span class="Apple-converted-space">      </span>"Saraiva": "Esc. Anderson Saraiva (51) 993879343",</p>
+<p class="p1"><span class="Apple-converted-space">      </span>"SARAIVA": "Esc. Anderson Saraiva (51) 993879343",</p>
+<p class="p1"><span class="Apple-converted-space">      </span>"LOSS": "Insp. Lucas Loss (51) 991055571",</p>
+<p class="p1"><span class="Apple-converted-space">      </span>"Loss": "Insp. Lucas Loss (51) 991055571",</p>
+<p class="p1"><span class="Apple-converted-space">      </span>"BROZOZA": "Insp. Alexandre Brozoza (51) 996500506",</p>
+<p class="p1"><span class="Apple-converted-space">      </span>"Brozoza": "Insp. Alexandre Brozoza (51) 996500506",</p>
+<p class="p1"><span class="Apple-converted-space">      </span>"DAGO": "Esc. Dagoberto O. das Virgens (51) 999920066",</p>
+<p class="p1"><span class="Apple-converted-space">      </span>"Dago": "Esc. Dagoberto O. das Virgens (51) 999920066",</p>
+<p class="p1"><span class="Apple-converted-space">      </span>"THÁSSIA": "Insp. Thássia Guterres (51) 996499862",</p>
+<p class="p1"><span class="Apple-converted-space">      </span>"Thássia": "Insp. Thássia Guterres (51) 996499862",</p>
+<p class="p1"><span class="Apple-converted-space">      </span>"Juliana": "Insp. Juliana Tremper (51) 993337587",</p>
+<p class="p1"><span class="Apple-converted-space">      </span>"JULIANA": "Insp. Juliana Tremper (51) 993337587",</p>
+<p class="p1"><span class="Apple-converted-space">      </span>"Cátia": "Esc. Cátia Fortunato (51) 985744501",</p>
+<p class="p1"><span class="Apple-converted-space">      </span>"CÁTIA": "Esc. Cátia Fortunato (51) 985744501",</p>
+<p class="p1"><span class="Apple-converted-space">      </span>"MELO": "Insp. Edmilson Melo (51) 983190815",</p>
+<p class="p1"><span class="Apple-converted-space">      </span>"Melo": "Insp. Edmilson Melo (51) 983190815"</p>
+<p class="p1"><span class="Apple-converted-space">    </span>};</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>const schedule = {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>"01/11/2025": ["CRISTIANO", "VANESSA", "Thiago"],</p>
+<p class="p1"><span class="Apple-converted-space">      </span>"02/11/2025": ["CRISTIANO", "VANESSA", "Thiago"],</p>
+<p class="p1"><span class="Apple-converted-space">      </span>"03/11/2025": ["PIAZZA", "CESAR", "VANESSA"],</p>
+<p class="p1"><span class="Apple-converted-space">      </span>"04/11/2025": ["BONA", "VANESSA", "Saraiva"],</p>
+<p class="p1"><span class="Apple-converted-space">      </span>"05/11/2025": ["DAGO", "THÁSSIA", "Thiago"],</p>
+<p class="p1"><span class="Apple-converted-space">      </span>"06/11/2025": ["JEFF", "TERESINHA", "Saraiva"],</p>
+<p class="p1"><span class="Apple-converted-space">      </span>"07/11/2025": ["CRISTIANO", "TERESINHA", "Thiago"],</p>
+<p class="p1"><span class="Apple-converted-space">      </span>"08/11/2025": ["JEFF", "JULIANA", "Tais"],</p>
+<p class="p1"><span class="Apple-converted-space">      </span>"09/11/2025": ["JEFF", "LUCIANA", "Edna"],</p>
+<p class="p1"><span class="Apple-converted-space">      </span>"10/11/2025": ["GUI MELLO", "BONA", "Tais"],</p>
+<p class="p1"><span class="Apple-converted-space">      </span>"11/11/2025": ["BROZOZA", "LOSS", "Saraiva"],</p>
+<p class="p1"><span class="Apple-converted-space">      </span>"12/11/2025": ["Cau", "LUCIANA", "Edna"],</p>
+<p class="p1"><span class="Apple-converted-space">      </span>"13/11/2025": ["MELO", "Cátia", "JEFF"],</p>
+<p class="p1"><span class="Apple-converted-space">      </span>"14/11/2025": ["PIAZZA", "BONA", "Saraiva"],</p>
+<p class="p1"><span class="Apple-converted-space">      </span>"15/11/2025": ["GUI MELLO", "THÁSSIA", "Saraiva"],</p>
+<p class="p1"><span class="Apple-converted-space">      </span>"16/11/2025": ["GUI MELLO", "LOSS", "Saraiva"],</p>
+<p class="p1"><span class="Apple-converted-space">      </span>"17/11/2025": ["CESAR", "TERESINHA", "JEFF"],</p>
+<p class="p1"><span class="Apple-converted-space">      </span>"18/11/2025": ["DAGO", "Cátia", "Edna"],</p>
+<p class="p1"><span class="Apple-converted-space">      </span>"19/11/2025": ["JEFF", "THÁSSIA", "Saraiva"],</p>
+<p class="p1"><span class="Apple-converted-space">      </span>"20/11/2025": ["CRISTIANO", "JULIANA", "Thiago"],</p>
+<p class="p1"><span class="Apple-converted-space">      </span>"21/11/2025": ["GUI MELLO", "MELO", "Thiago"],</p>
+<p class="p1"><span class="Apple-converted-space">      </span>"22/11/2025": ["BROZOZA", "LOSS", "Thiago"],</p>
+<p class="p1"><span class="Apple-converted-space">      </span>"23/11/2025": ["BROZOZA", "LOSS", "Thiago"],</p>
+<p class="p1"><span class="Apple-converted-space">      </span>"24/11/2025": ["Cau", "LUCIANA", "Saraiva"],</p>
+<p class="p1"><span class="Apple-converted-space">      </span>"25/11/2025": ["BROZOZA", "LOSS", "VANESSA"],</p>
+<p class="p1"><span class="Apple-converted-space">      </span>"26/11/2025": ["MELO", "VANESSA", "JEFF"],</p>
+<p class="p1"><span class="Apple-converted-space">      </span>"27/11/2025": ["PIAZZA", "GUI MELLO", "Tais"],</p>
+<p class="p1"><span class="Apple-converted-space">      </span>"28/11/2025": ["CESAR", "JULIANA", "VANESSA"],</p>
+<p class="p1"><span class="Apple-converted-space">      </span>"29/11/2025": ["Cau", "LUCIANA", "Edna"],</p>
+<p class="p1"><span class="Apple-converted-space">      </span>"30/11/2025": ["Cau", "JULIANA", "Edna"]</p>
+<p class="p1"><span class="Apple-converted-space">    </span>};</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>const selectEl = document.getElementById("data-select");</p>
+<p class="p1"><span class="Apple-converted-space">    </span>const outputEl = document.getElementById("output");</p>
+<p class="p1"><span class="Apple-converted-space">    </span>const btnCopy = document.getElementById("btn-copy");</p>
+<p class="p1"><span class="Apple-converted-space">    </span>const btnWa = document.getElementById("btn-wa");</p>
+<p class="p1"><span class="Apple-converted-space">    </span>const btnClear = document.getElementById("btn-clear");</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>function formatPerson(nameRaw) {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>return phoneMapping[nameRaw] || nameRaw;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>function buildMessage(dateStr) {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>const escala = schedule[dateStr];</p>
+<p class="p1"><span class="Apple-converted-space">      </span>if (!escala) return "";</p>
+<p class="p1"><span class="Apple-converted-space">      </span>const [sa01, sa02, saNac] = escala;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>const p1 = formatPerson(sa01);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>const p2 = formatPerson(sa02);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>const pNac = formatPerson(saNac);</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>return (</p>
+<p class="p1">`*Sobreaviso DRV/DEIC*</p>
+<p class="p1">Data: ${dateStr}</p>
+<p class="p2"><br></p>
+<p class="p1">${p1}</p>
+<p class="p1">${p2}</p>
+<p class="p2"><br></p>
+<p class="p1">NAC:</p>
+<p class="p1">${pNac}</p>
+<p class="p2"><br></p>
+<p class="p1">Assuntos gerais e atendimento ao público - WhatsApp Secretaria:</p>
+<p class="p1">(51) 984044887</p>
+<p class="p2"><br></p>
+<p class="p1">Chefe de SI:</p>
+<p class="p1">Com. Bruna Caldeira 51 99139-9403</p>
+<p class="p2"><br></p>
+<p class="p1">Autoridade Policial:</p>
+<p class="p1">Delegada Jeiselaure Rocha de Souza (51) 99145-8919`</p>
+<p class="p1"><span class="Apple-converted-space">      </span>);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>selectEl.addEventListener("change", () =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>const date = selectEl.value;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>outputEl.value = date ? buildMessage(date) : "";</p>
+<p class="p1"><span class="Apple-converted-space">    </span>});</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>btnCopy.addEventListener("click", () =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>if (!outputEl.value) return;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>outputEl.select();</p>
+<p class="p1"><span class="Apple-converted-space">      </span>document.execCommand("copy");</p>
+<p class="p1"><span class="Apple-converted-space">      </span>window.getSelection().removeAllRanges();</p>
+<p class="p1"><span class="Apple-converted-space">      </span>alert("Texto copiado para a área de transferência.");</p>
+<p class="p1"><span class="Apple-converted-space">    </span>});</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>btnWa.addEventListener("click", () =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>if (!outputEl.value) {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>alert("Selecione uma data antes de enviar para o WhatsApp.");</p>
+<p class="p1"><span class="Apple-converted-space">        </span>return;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>}</p>
+<p class="p1"><span class="Apple-converted-space">      </span>const encoded = encodeURIComponent(outputEl.value);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>window.open("https://wa.me/?text=" + encoded, "_blank");</p>
+<p class="p1"><span class="Apple-converted-space">    </span>});</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>btnClear.addEventListener("click", () =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>selectEl.value = "";</p>
+<p class="p1"><span class="Apple-converted-space">      </span>outputEl.value = "";</p>
+<p class="p1"><span class="Apple-converted-space">    </span>});</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/script&gt;</p>
+<p class="p1">&lt;/body&gt;</p>
+<p class="p1">&lt;/html&gt;</p>
+</body>
+</html>

@@ -108,6 +108,41 @@
             font-size: 13px;
         }
 
+        .swap-container {
+            background: #f9f9f9;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 16px;
+            margin-bottom: 20px;
+        }
+
+        .swap-row {
+            display: grid;
+            grid-template-columns: 1fr auto 1fr;
+            gap: 12px;
+            align-items: end;
+            margin-bottom: 12px;
+        }
+
+        .swap-row:last-child {
+            margin-bottom: 0;
+        }
+
+        .swap-row label {
+            margin-bottom: 5px;
+        }
+
+        .swap-row select {
+            margin-bottom: 0;
+        }
+
+        .swap-arrow {
+            text-align: center;
+            font-weight: bold;
+            color: #2563eb;
+            font-size: 18px;
+        }
+
         .buttons {
             display: flex;
             gap: 10px;
@@ -169,6 +204,19 @@
             button {
                 min-width: 100%;
             }
+
+            .tab-btn {
+                font-size: 14px;
+                padding: 10px;
+            }
+
+            .swap-row {
+                grid-template-columns: 1fr;
+            }
+
+            .swap-arrow {
+                display: none;
+            }
         }
     </style>
 </head>
@@ -181,6 +229,7 @@
         <div class="tabs">
             <button class="tab-btn active" onclick="showTab(0)">📅 Buscar por Data</button>
             <button class="tab-btn" onclick="showTab(1)">👤 Buscar por Pessoa</button>
+            <button class="tab-btn" onclick="showTab(2)">🔄 Trocas</button>
         </div>
 
         <div class="content">
@@ -282,6 +331,125 @@
                 </select>
             </div>
 
+            <!-- ABA 3: TROCAS -->
+            <div class="tab-content">
+                <label for="swap-date-select">Selecione a data da troca:</label>
+                <select id="swap-date-select" onchange="loadSwapOptions()">
+                    <option value="">-- Escolha uma data --</option>
+                    <option>01/11/2025</option>
+                    <option>02/11/2025</option>
+                    <option>03/11/2025</option>
+                    <option>04/11/2025</option>
+                    <option>05/11/2025</option>
+                    <option>06/11/2025</option>
+                    <option>07/11/2025</option>
+                    <option>08/11/2025</option>
+                    <option>09/11/2025</option>
+                    <option>10/11/2025</option>
+                    <option>11/11/2025</option>
+                    <option>12/11/2025</option>
+                    <option>13/11/2025</option>
+                    <option>14/11/2025</option>
+                    <option>15/11/2025</option>
+                    <option>16/11/2025</option>
+                    <option>17/11/2025</option>
+                    <option>18/11/2025</option>
+                    <option>19/11/2025</option>
+                    <option>20/11/2025</option>
+                    <option>21/11/2025</option>
+                    <option>22/11/2025</option>
+                    <option>23/11/2025</option>
+                    <option>24/11/2025</option>
+                    <option>25/11/2025</option>
+                    <option>26/11/2025</option>
+                    <option>27/11/2025</option>
+                    <option>28/11/2025</option>
+                    <option>29/11/2025</option>
+                    <option>30/11/2025</option>
+                    <option>01/12/2025</option>
+                    <option>02/12/2025</option>
+                    <option>03/12/2025</option>
+                    <option>04/12/2025</option>
+                    <option>05/12/2025</option>
+                    <option>06/12/2025</option>
+                    <option>07/12/2025</option>
+                    <option>08/12/2025</option>
+                    <option>09/12/2025</option>
+                    <option>10/12/2025</option>
+                    <option>11/12/2025</option>
+                    <option>12/12/2025</option>
+                    <option>13/12/2025</option>
+                    <option>14/12/2025</option>
+                    <option>15/12/2025</option>
+                    <option>16/12/2025</option>
+                    <option>17/12/2025</option>
+                    <option>18/12/2025</option>
+                    <option>19/12/2025</option>
+                    <option>20/12/2025</option>
+                    <option>21/12/2025</option>
+                    <option>22/12/2025</option>
+                    <option>23/12/2025</option>
+                    <option>24/12/2025</option>
+                    <option>25/12/2025</option>
+                    <option>26/12/2025</option>
+                    <option>27/12/2025</option>
+                    <option>28/12/2025</option>
+                    <option>29/12/2025</option>
+                    <option>30/12/2025</option>
+                    <option>31/12/2025</option>
+                </select>
+
+                <div class="swap-container" id="swap-options-container" style="display: none;">
+                    <div class="swap-row">
+                        <div>
+                            <label for="swap-person-1">Quem está:</label>
+                            <select id="swap-person-1" onchange="updateSwapMessage()">
+                                <option value="">-- Selecione --</option>
+                            </select>
+                        </div>
+                        <div class="swap-arrow">→</div>
+                        <div>
+                            <label for="swap-for-1">Vai trocar para:</label>
+                            <select id="swap-for-1" onchange="updateSwapMessage()">
+                                <option value="">-- Selecione --</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="swap-row">
+                        <div>
+                            <label for="swap-person-2">Quem está:</label>
+                            <select id="swap-person-2" onchange="updateSwapMessage()">
+                                <option value="">-- Selecione --</option>
+                            </select>
+                        </div>
+                        <div class="swap-arrow">→</div>
+                        <div>
+                            <label for="swap-for-2">Vai trocar para:</label>
+                            <select id="swap-for-2" onchange="updateSwapMessage()">
+                                <option value="">-- Selecione --</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="swap-row">
+                        <div>
+                            <label for="swap-person-3">Quem está:</label>
+                            <select id="swap-person-3" onchange="updateSwapMessage()">
+                                <option value="">-- Selecione --</option>
+                            </select>
+                        </div>
+                        <div class="swap-arrow">→</div>
+                        <div>
+                            <label for="swap-for-3">Vai trocar para:</label>
+                            <select id="swap-for-3" onchange="updateSwapMessage()">
+                                <option value="">-- Selecione --</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
             <textarea id="output" placeholder="O texto do sobreaviso aparecerá aqui..." readonly></textarea>
 
             <div class="buttons">
@@ -364,6 +532,16 @@
             "Esc. Cátia Fortunato": "Cátia",
             "Insp. Edmilson Melo": "Melo"
         };
+
+        const allPeople = [
+            "Insp. Acauã", "Esc. Anderson Saraiva", "Insp. Alexandre Brozoza",
+            "Esc. Cátia Fortunato", "Insp. Cristiano Soletti", "Esc. César da Costa",
+            "Esc. Dagoberto O. das Virgens", "Insp. Edmilson Melo", "Insp. Edna Moraes",
+            "Esc. Fernanda Piazza", "Insp. Guilherme Mello", "Esc. Jefferson Antoniol",
+            "Insp. Juliana Tremper", "Insp. Juliano Bonacina", "Esc. Luciana Bortoli",
+            "Insp. Lucas Loss", "Insp. Tais Boesing", "Insp. Teresinha Carivali",
+            "Insp. Thiago Meireles", "Insp. Thássia Guterres", "Insp. Vanessa Trindade"
+        ];
 
         const schedule = {
             "01/11/2025": ["Cristiano", "Vanessa", "Thiago"],
@@ -454,11 +632,19 @@
             document.getElementById('output').value = '';
         }
 
-        function buildMessage(date) {
-            const escala = schedule[date];
+        function buildMessage(date, swaps = null) {
+            let escala = schedule[date];
             if (!escala) return "";
             
-            const [sa01, sa02, saNac] = escala;
+            let [sa01, sa02, saNac] = escala;
+
+            // Se houver trocas, aplicar
+            if (swaps) {
+                if (swaps[0]) sa01 = peopleShortMap[swaps[0]];
+                if (swaps[1]) sa02 = peopleShortMap[swaps[1]];
+                if (swaps[2]) saNac = peopleShortMap[swaps[2]];
+            }
+
             const nome1 = nameMap[sa01];
             const fone1 = phoneMap[sa01];
             const nome2 = nameMap[sa02];
@@ -500,7 +686,6 @@
             let decCount = 0;
             let datesFound = [];
 
-            // Encontrar todas as datas e contar por mês
             for (let date in schedule) {
                 const escala = schedule[date];
                 const sa01 = escala[0];
@@ -517,15 +702,12 @@
                 }
             }
 
-            // Ordenar as datas de forma crescente
             datesFound = sortDates(datesFound);
 
-            // Adicionar resumo
             result += "Novembro: " + novCount + " sobreavisos\n";
             result += "Dezembro: " + decCount + " sobreavisos\n\n";
             result += "════════════════════════════════════════\n\n";
 
-            // Gerar texto completo para cada dia em ordem crescente
             for (let i = 0; i < datesFound.length; i++) {
                 if (i > 0) {
                     result += "\n\n════════════════════════════════════════\n\n";
@@ -534,6 +716,56 @@
             }
             
             document.getElementById('output').value = result;
+        }
+
+        function loadSwapOptions() {
+            const date = document.getElementById('swap-date-select').value;
+            if (!date) {
+                document.getElementById('swap-options-container').style.display = 'none';
+                return;
+            }
+
+            const escala = schedule[date];
+            if (!escala) return;
+
+            const [sa01Short, sa02Short, saNacShort] = escala;
+            const names = [];
+            names[0] = nameMap[sa01Short];
+            names[1] = nameMap[sa02Short];
+            if (saNacShort && saNacShort !== "") {
+                names[2] = nameMap[saNacShort];
+            } else {
+                names[2] = "(Sem NAC neste dia)";
+            }
+
+            // Carregar os nomes nos campos "Quem está"
+            for (let i = 1; i <= 3; i++) {
+                const elem = document.getElementById('swap-person-' + i);
+                elem.innerHTML = '<option value="">-- ' + names[i-1] + ' --</option>';
+                elem.value = '';
+
+                const forElem = document.getElementById('swap-for-' + i);
+                forElem.innerHTML = '<option value="">-- Selecione --</option>';
+                allPeople.forEach(person => {
+                    forElem.innerHTML += '<option value="' + person + '">' + person + '</option>';
+                });
+            }
+
+            document.getElementById('swap-options-container').style.display = 'block';
+            updateSwapMessage();
+        }
+
+        function updateSwapMessage() {
+            const date = document.getElementById('swap-date-select').value;
+            if (!date) return;
+
+            const swaps = [];
+            for (let i = 1; i <= 3; i++) {
+                const forVal = document.getElementById('swap-for-' + i).value;
+                swaps.push(forVal || null);
+            }
+
+            document.getElementById('output').value = buildMessage(date, swaps);
         }
 
         function copyText() {
@@ -561,6 +793,8 @@
             document.getElementById('output').value = '';
             document.getElementById('date-select').value = '';
             document.getElementById('person-select').value = '';
+            document.getElementById('swap-date-select').value = '';
+            document.getElementById('swap-options-container').style.display = 'none';
         }
     </script>
 </body>
